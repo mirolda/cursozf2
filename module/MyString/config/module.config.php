@@ -6,51 +6,77 @@
  * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
-
 return array(
-    'application'=> array(
-        'name'=> 'MyString App',
-    ),
     'router' => array(
         'routes' => array(
-            'myString' => array(
+            'my-string' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route'    => '/myString/',
+                    'route'    => '/my-string/',
                     'defaults' => array(
                         'controller' => 'MyString\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),
             ),
+            'myString\myString\concatenate' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/my-string/concatenate/',
+                    'defaults' => array(
+                        'controller' => 'MyString\Controller\MyString',
+                        'action'     => 'concatenate',
+                    ),
+                ),
+            ),
+            'myString\myString\doConcatenate' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/my-string/do-concatenate/',
+                    'defaults' => array(
+                        'controller' => 'MyString\Controller\MyString',
+                        'action'     => 'doConcatenate',
+                    ),
+                ),
+            ),
+            'myString\myString\find' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/my-string/find/',
+                    'defaults' => array(
+                        'controller' => 'MyString\Controller\MyString',
+                        'action'     => 'find',
+                    ),
+                ),
+            ),
+            'myString\myString\doFind' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/my-string/do-find/',
+                    'defaults' => array(
+                        'controller' => 'MyString\Controller\MyString',
+                        'action'     => 'doFind',
+                    ),
+                ),
+            ),
+        ),
+    ),
+    'service_manager' => array(
+        'invokables' => array(
+            'MyString\Model\MyString' => 'MyString\Model\MyStringModel'
         ),
     ),
     'controllers' => array(
-        'invokables' => array(
-            'MyString\Controller\Index' => 'MyString\Controller\IndexController'
+        'factories' => array(
+            'MyString\Controller\MyString' => 'MyString\Controller\Factory\MyStringControllerFactory',
         ),
     ),
     'view_manager' => array(
-        'display_not_found_reason' => true,
-        'display_exceptions'       => true,
-        'doctype'                  => 'HTML5',
-        'not_found_template'       => 'error/404',
-        'exception_template'       => 'error/index',
         'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'myString/index/index' => __DIR__ . '/../view/myString/index/index.phtml',
-            'error/404'               => __DIR__ . '/../view/error/404.phtml',
-            'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
-        ),
-    ),
-    // Placeholder for console routes
-    'console' => array(
-        'router' => array(
-            'routes' => array(
-            ),
         ),
     ),
 );
