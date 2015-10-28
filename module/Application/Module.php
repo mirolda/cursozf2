@@ -9,16 +9,20 @@
 
 namespace Application;
 
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
-class Module
+class Module implements AutoloaderProviderInterface
 {
     public function onBootstrap(MvcEvent $e)
     {
-        $eventManager        = $e->getApplication()->getEventManager();
-        $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($eventManager);
+//        $e->getApplication()->getEventManager()->getSharedManager()->attach('Zend\Mvc\Controller\AbstractController', 'dispatch', function($e) {
+//            $controller = $e->getTarget();
+//            $controllerClass = get_class($controller);
+//            $moduleNamespace = substr($controllerClass, 0, strpos($controllerClass, '\\'));
+//            $controller->layout($moduleNamespace . '/layout');
+//        }, 100);
     }
 
     public function getConfig()
