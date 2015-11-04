@@ -1,0 +1,10 @@
+<?php echo $this->partial('bookmark/account/partial/form', [
+    'action'    => $this->url('bookmark\account\doUpdate'),
+    'id'        => $this->bookmark->getId(),
+    'url'     => $this->bookmark->getUrl(),
+    'title'  => $this->bookmark->getTitle(),
+    'description'      => $this->bookmark->getDescription(),
+    'creationAt'      => $this->bookmark->getCreationAt(),
+    'modifiedAt'      => $this->bookmark->getModifiedAt()
+]);
+?>

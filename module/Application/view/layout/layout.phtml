@@ -39,6 +39,9 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+                        <li><a href="<?php echo $this->url('calculator\calculator\index') ?>">Calculator</a></li>
+                        <li><a href="<?php echo $this->url('calculadora_home') ?>">Calculadora</a></li>
+                        <li><a href="<?php echo $this->url('my-string_home') ?>">MyString</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -47,7 +50,7 @@
             <?php echo $this->content; ?>
             <hr>
             <footer>
-                <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
+                <p>&copy; 2005 - 2015 by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
             </footer>
         </div> <!-- /container -->
         <?php echo $this->inlineScript() ?>
