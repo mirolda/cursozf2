@@ -1,7 +1,6 @@
 <?php
 namespace Bookmark\Model\Factory;
 
-
 use Bookmark\Model\BookmarkDao;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

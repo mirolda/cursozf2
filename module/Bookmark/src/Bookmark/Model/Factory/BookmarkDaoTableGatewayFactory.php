@@ -1,7 +1,6 @@
 <?php
 namespace Bookmark\Model\Factory;
 
-
 use Bookmark\Model\Bookmark;
 use Bookmark\Model\BookmarkDaoTableGateway;
 use Zend\Db\ResultSet\ResultSet;

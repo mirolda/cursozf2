@@ -1,7 +1,6 @@
 <?php
 namespace Bookmark\Model\Interfaces;
 
-
 interface BookmarkDaoInterface
 {
     public function findAll();

@@ -1,7 +1,6 @@
 <?php
 namespace Bookmark\Controller\Factory;
 
-
 use Bookmark\Controller\AccountController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
