@@ -8,49 +8,89 @@
  */
 
 return array(
-    'application'=> array(
-        'name'=> 'Calculator App',
-    ),
     'router' => array(
         'routes' => array(
-            'calculator' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+            'calculator\calculator\index' => array(
+                'type' => 'Literal',
                 'options' => array(
                     'route'    => '/calculator/',
                     'defaults' => array(
-                        'controller' => 'Calculator\Controller\Index',
+                        'controller' => 'Calculator\Controller\Calculator',
                         'action'     => 'index',
+                    ),
+                ),
+            ),
+            'calculator\calculator\add' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/calculator/add/',
+                    'defaults' => array(
+                        'controller' => 'Calculator\Controller\Calculator',
+                        'action'     => 'add',
+                    ),
+                ),
+            ),
+            'calculator\calculator\doAdd' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/calculator/do-add/',
+                    'defaults' => array(
+                        'controller' => 'Calculator\Controller\Calculator',
+                        'action'     => 'doAdd',
+                    ),
+                ),
+            ),
+            'calculator\calculator\substract' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/calculator/substract/',
+                    'defaults' => array(
+                        'controller' => 'Calculator\Controller\Calculator',
+                        'action'     => 'substract',
+                    ),
+                ),
+            ),
+            'calculator\calculator\multiply' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/calculator/multiply/',
+                    'defaults' => array(
+                        'controller' => 'Calculator\Controller\Calculator',
+                        'action'     => 'multiply',
+                    ),
+                ),
+            ),
+            'calculator\calculator\division' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/calculator/division/',
+                    'defaults' => array(
+                        'controller' => 'Calculator\Controller\Calculator',
+                        'action'     => 'division',
                     ),
                 ),
             ),
         ),
     ),
+    'service_manager' => array(
+        'invokables' => array(
+            'Calculator\Model\Calculator' => 'Calculator\Model\CalculatorModel'
+        ),
+    ),
     'controllers' => array(
         'invokables' => array(
-            'Calculator\Controller\Index' => 'Calculator\Controller\IndexController'
+            //'Calculator\Controller\Calculator' => 'Calculator\Controller\CalculatorController'
+        ),
+        'factories' => array(
+            'Calculator\Controller\Calculator' => 'Calculator\Controller\Factory\CalculatorControllerFactory',
         ),
     ),
     'view_manager' => array(
-        'display_not_found_reason' => true,
-        'display_exceptions'       => true,
-        'doctype'                  => 'HTML5',
-        'not_found_template'       => 'error/404',
-        'exception_template'       => 'error/index',
         'template_map' => array(
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'calculator/index/index' => __DIR__ . '/../view/calculator/index/index.phtml',
-            'error/404'               => __DIR__ . '/../view/error/404.phtml',
-            'error/index'             => __DIR__ . '/../view/error/index.phtml',
+         //   'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
-        ),
-    ),
-    // Placeholder for console routes
-    'console' => array(
-        'router' => array(
-            'routes' => array(
-            ),
         ),
     ),
 );

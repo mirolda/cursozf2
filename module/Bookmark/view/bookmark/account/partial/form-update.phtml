@@ -1,0 +1,35 @@
+<?php
+    $id         = (isset($this->id) ? $this->id : '');
+    $url      = (isset($this->url) ? $this->url : '');
+    $title   = (isset($this->title) ? $this->title : '');
+    $description       = (isset($this->description) ? $this->description : '');
+    $creationAt       = (isset($this->creationAt) ? $this->creationAt : '');
+    $modifiedAt       = (isset($this->modifiedAt) ? $this->modifiedAt : '');
+
+?>
+
+<div>
+    <form id="form1" action="<?php echo $this->action ?>" method="post">
+        <!-- Disabled fields will not be sent in $_POST so we have to create hidden fields -->
+        <input type="hidden" name="id" value="<?php echo $id ?>">
+        <input type="hidden" name="creationAt" value="<?php echo $creationAt ?>">
+        <input type="hidden" name="modifiedAt" value="<?php echo $modifiedAt ?>">
+        <table>
+            <tr>
+                <td><strong>Url:</strong></td>
+                <td><input type="text" name="url" value="<?php echo $url ?>"></td>
+            </tr>
+            <tr>
+                <td><strong>Title:</strong></td>
+                <td><input type="text" name="title" value="<?php echo $title ?>"></td>
+            </tr>
+            <tr>
+                <td><strong>Description:</strong></td>
+                <td><input type="text" name="description" value="<?php echo $description ?>"></td>
+            </tr>
+            <tr align="right">
+                <td colspan="2"><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+</div>

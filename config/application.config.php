@@ -3,8 +3,11 @@ return array(
     // This should be an array of module namespaces used in the application.
     'modules' => array(
         'Application',
-        'MyString',
         'Calculator',
+        'Calculadora',
+        'MyString',
+        'User',
+        'Bookmark',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
