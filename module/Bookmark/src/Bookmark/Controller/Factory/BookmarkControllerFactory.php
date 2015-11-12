@@ -1,11 +1,11 @@
 <?php
 namespace Bookmark\Controller\Factory;
 
-use Bookmark\Controller\AccountController;
+use Bookmark\Controller\BookmarkController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AccountControllerTableGatewayFactory implements FactoryInterface
+class BookmarkControllerFactory implements FactoryInterface
 {
 
     /**
@@ -13,13 +13,13 @@ class AccountControllerTableGatewayFactory implements FactoryInterface
      *
      * @param ServiceLocatorInterface $serviceLocator
      *
-     * @return mixed
+     * @return BookmarkController
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $sm = $serviceLocator->getServiceLocator();
-        $model = $sm->get('Bookmark\Model\BookmarkDaoTableGateway');
+        $bookmarkDao = $sm->get('Bookmark\Model\BookmarkDao');
 
-        return new AccountController($model);
+        return new BookmarkController($bookmarkDao);
     }
 }

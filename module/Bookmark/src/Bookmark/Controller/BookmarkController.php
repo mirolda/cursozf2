@@ -9,7 +9,7 @@ use Zend\View\Model\ViewModel;
 
 use Zend\Mvc\Controller\AbstractActionController;
 
-class AccountController extends AbstractActionController
+class BookmarkController extends AbstractActionController
 {
     /**
      * @var BookmarkDaoInterface

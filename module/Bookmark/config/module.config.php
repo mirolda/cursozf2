@@ -7,7 +7,7 @@ return array(
                 'options' => array(
                     'route'    => '/bookmark/',
                     'defaults' => array(
-                        'controller' => 'Bookmark\Controller\Account',
+                        'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'index',
                     ),
                 ),
@@ -20,7 +20,7 @@ return array(
                         'id' => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Bookmark\Controller\Account',
+                        'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'view',
                     ),
                 ),
@@ -30,7 +30,7 @@ return array(
                 'options' => array(
                     'route'    => '/bookmark/create/',
                     'defaults' => array(
-                        'controller' => 'Bookmark\Controller\Account',
+                        'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'create',
                     ),
                 ),
@@ -40,7 +40,7 @@ return array(
                 'options' => array(
                     'route'    => '/bookmark/do-create/',
                     'defaults' => array(
-                        'controller' => 'Bookmark\Controller\Account',
+                        'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'doCreate',
                     ),
                 ),
@@ -53,7 +53,7 @@ return array(
                         'id' => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Bookmark\Controller\Account',
+                        'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'delete',
                     ),
                 ),
@@ -66,7 +66,7 @@ return array(
                         'id' => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Bookmark\Controller\Account',
+                        'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'update',
                     ),
                 ),
@@ -76,7 +76,7 @@ return array(
                 'options' => array(
                     'route'    => '/bookmark/do-update/',
                     'defaults' => array(
-                        'controller' => 'Bookmark\Controller\Account',
+                        'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'doUpdate',
                     ),
                 ),
@@ -91,7 +91,7 @@ return array(
     ),
     'controllers' => array(
         'factories' => array(
-            'Bookmark\Controller\Account' => 'Bookmark\Controller\Factory\AccountControllerTableGatewayFactory',
+            'Bookmark\Controller\Bookmark' => 'Bookmark\Controller\Factory\BookmarkControllerTableGatewayFactory',
         ),
     ),
     'view_manager' => array(
