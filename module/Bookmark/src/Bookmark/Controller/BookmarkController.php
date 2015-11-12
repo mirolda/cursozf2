@@ -5,7 +5,7 @@ namespace Bookmark\Controller;
 use Bookmark\Model\Interfaces\BookmarkDaoInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 
-class AccountController extends AbstractActionController
+class BookmarkController extends AbstractActionController
 {
     /**
      * @var BookmarkDaoInterface

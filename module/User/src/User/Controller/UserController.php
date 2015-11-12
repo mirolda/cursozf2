@@ -5,7 +5,7 @@ namespace User\Controller;
 use User\Model\Interfaces\UserDaoInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 
-class AccountController extends AbstractActionController
+class UserController extends AbstractActionController
 {
     /**
      * @var UserDaoInterface
