@@ -1,9 +1,16 @@
 <?php
+
 namespace Bookmark\Model;
 
+use Zend\InputFilter\InputFilter;
+use Zend\InputFilter\InputFilterAwareInterface;
+use Zend\InputFilter\InputFilterInterface;
 
-class Bookmark
+class Bookmark implements InputFilterAwareInterface
 {
+    // for binding to work with the form this variables have the same name as the form fields
+    // not use here '_' to denote private property
+
     private $id;
     private $url;
     private $title;
@@ -11,9 +18,14 @@ class Bookmark
     private $creationAt;
     private $modifiedAt;
 
+    /**
+     * @var InputFilterInterface
+     *
+     * This variable is needed for the input filter
+     */
+    private $inputFilter;
 
-    function __construct($id = null, $url = null, $title = null, $description = null, $creationAt = null,
-                         $modifiedAt = null )
+    function __construct($id = null, $url = null, $title = null, $description = null, $creationAt = null, $modifiedAt = null )
     {
         $this->id           = $id;
         $this->url          = $url;
@@ -134,5 +146,88 @@ class Bookmark
     public function setModifiedAt($modifiedAt)
     {
         $this->modifiedAt = $modifiedAt;
+    }
+
+    /**
+     * getArrayCopy
+     *
+     * Needed for use in form binding
+     *
+     * @return array
+     */
+    public function getArrayCopy()
+    {
+        return get_object_vars($this);
+    }
+
+    /**
+     * Set input filter
+     *
+     * @param  InputFilterInterface $inputFilter
+     *
+     * @return InputFilterAwareInterface
+     */
+    public function setInputFilter(InputFilterInterface $inputFilter)
+    {
+        throw new \Exception('Not used');
+    }
+    /**
+     * Retrieve input filter
+     *
+     * @return InputFilterInterface
+     */
+    public function getInputFilter()
+    {
+        if (!$this->inputFilter) {
+            $inputFilter = new InputFilter();
+            $inputFilter->add(array(
+                'name' => 'id',
+                'continue_if_empty' => true,
+            ));
+            $inputFilter->add(array(
+                'name' => 'creationAt',
+                'continue_if_empty' => true,
+            ));
+            $inputFilter->add(array(
+                'name' => 'modifiedAt',
+                'continue_if_empty' => true,
+            ));
+            $inputFilter->add(array(
+                'name' => 'url',
+                'required' => true,
+                'filters' => array(
+                    array('name' => 'StringTrim'), // clean blank spaces
+                    array('name' => 'StripTags'), // clean malicious code
+                    array('name' => 'StringToLower'),
+                ),
+                'validators' => array(
+                    array(
+                        'name' => 'NotEmpty',
+                        'options' => array(
+                            'messages' => array(
+                                'isEmpty' => 'La Url es obligatoria',
+                            ),
+                        ),
+                    ),
+                ),
+            ));
+            $inputFilter->add(array(
+                'name' => 'title',
+                'required' => true,
+                'filters' => array(
+                    array('name' => 'Alnum'),
+                ),
+            ));
+
+            $inputFilter->add(array(
+                'name' => 'description',
+                'required' => true,
+                'filters' => array(
+                    array('name' => 'Alnum'),
+                ),
+            ));
+            $this->inputFilter = $inputFilter;
+        }
+        return $this->inputFilter;
     }
 }
