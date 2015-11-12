@@ -7,9 +7,10 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Calculator\Controller;
+namespace Calculadora\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+
 
 class IndexController extends AbstractActionController
 {
