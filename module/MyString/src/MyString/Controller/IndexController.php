@@ -11,12 +11,11 @@ namespace MyString\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 
-
 class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $config = $this->serviceLocator->get('Config');
-        return ['appName' => $config['applicationMyString']['name']];
+        $config = $this->serviceLocator->get('config');
+        return ['appName' => $config['application']['name']];
     }
 }
