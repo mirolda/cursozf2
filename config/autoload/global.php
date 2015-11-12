@@ -12,7 +12,5 @@
  */
 
 return array(
-    'application' => array(
-        'title' => 'Miren - ZF2 Course',
-    )
+    // ...
 );
