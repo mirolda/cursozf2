@@ -22,7 +22,7 @@ use User\Model\User;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class UserController extends AbstractActionController
+class AccountController extends AbstractActionController
 {
     /**
      * @var UserDaoInterface
@@ -163,3 +163,4 @@ class UserController extends AbstractActionController
         $this->redirect()->toRoute('user\account\index');
     }
 }
+

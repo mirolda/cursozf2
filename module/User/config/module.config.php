@@ -7,7 +7,7 @@ return array(
                 'options' => array(
                     'route'    => '/account/',
                     'defaults' => array(
-                        'controller' => 'User\Controller\User',
+                        'controller' => 'User\Controller\Account',
                         'action'     => 'index',
                     ),
                 ),
@@ -20,7 +20,7 @@ return array(
                         'id' => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'User\Controller\User',
+                        'controller' => 'User\Controller\Account',
                         'action'     => 'view',
                     ),
                 ),
@@ -30,7 +30,7 @@ return array(
                 'options' => array(
                     'route'    => '/account/create/',
                     'defaults' => array(
-                        'controller' => 'User\Controller\User',
+                        'controller' => 'User\Controller\Account',
                         'action'     => 'create',
                     ),
                 ),
@@ -40,7 +40,7 @@ return array(
                 'options' => array(
                     'route'    => '/account/do-create/',
                     'defaults' => array(
-                        'controller' => 'User\Controller\User',
+                        'controller' => 'User\Controller\Account',
                         'action'     => 'doCreate',
                     ),
                 ),
@@ -53,7 +53,7 @@ return array(
                         'id' => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'User\Controller\User',
+                        'controller' => 'User\Controller\Account',
                         'action'     => 'delete',
                     ),
                 ),
@@ -66,7 +66,7 @@ return array(
                         'id' => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'User\Controller\User',
+                        'controller' => 'User\Controller\Account',
                         'action'     => 'update',
                     ),
                 ),
@@ -76,7 +76,7 @@ return array(
                 'options' => array(
                     'route'    => '/account/do-update/',
                     'defaults' => array(
-                        'controller' => 'User\Controller\User',
+                        'controller' => 'User\Controller\Account',
                         'action'     => 'doUpdate',
                     ),
                 ),
@@ -91,8 +91,8 @@ return array(
     ),
     'controllers' => array(
         'factories' => array(
-            //'User\Controller\User' => 'User\Controller\Factory\UserControllerFactory',
-            'User\Controller\User' => 'User\Controller\Factory\UserControllerTableGatewayFactory',
+            //'User\Controller\Account' => 'User\Controller\Factory\AccountControllerFactory',
+            'User\Controller\Account' => 'User\Controller\Factory\AccountControllerTableGatewayFactory',
         ),
     ),
     'view_manager' => array(

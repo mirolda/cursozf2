@@ -17,11 +17,11 @@
 namespace User\Controller\Factory;
 
 
-use User\Controller\UserController;
+use User\Controller\AccountController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class UserControllerFactory implements FactoryInterface
+class AccountControllerFactory implements FactoryInterface
 {
 
     /**
@@ -29,13 +29,13 @@ class UserControllerFactory implements FactoryInterface
      *
      * @param ServiceLocatorInterface $serviceLocator
      *
-     * @return UserController
+     * @return AccountController
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $sm = $serviceLocator->getServiceLocator();
         $userDao = $sm->get('User\Model\UserDao');
 
-        return new UserController($userDao);
+        return new AccountController($userDao);
     }
 }
