@@ -9,6 +9,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'index',
+                        'roles'      => ['admin', 'user'],
                     ),
                 ),
             ),
@@ -22,6 +23,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'view',
+                        'roles'      => ['admin', 'user'],
                     ),
                 ),
             ),
@@ -32,6 +34,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'create',
+                        'roles'      => ['admin'],
                     ),
                 ),
             ),
@@ -42,6 +45,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'doCreate',
+                        'roles'      => ['admin'],
                     ),
                 ),
             ),
@@ -55,6 +59,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'delete',
+                        'roles'      => ['admin'],
                     ),
                 ),
             ),
@@ -68,6 +73,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'update',
+                        'roles'      => ['admin'],
                     ),
                 ),
             ),
@@ -78,6 +84,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'doUpdate',
+                        'roles'      => ['admin'],
                     ),
                 ),
             ),

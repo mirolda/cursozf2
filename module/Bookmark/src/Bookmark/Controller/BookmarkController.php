@@ -2,6 +2,7 @@
 
 namespace Bookmark\Controller;
 
+
 use Bookmark\Form\Bookmark as BookmarkForm;
 use Bookmark\Model\Interfaces\BookmarkDaoInterface;
 use Bookmark\Model\Bookmark;
@@ -23,7 +24,7 @@ class BookmarkController extends AbstractActionController
 
     public function indexAction()
     {
-        $this->layout()->title  = 'List Bookmarks';
+        $this->layout()->title  = 'Lista Bookmarks';
         $bookmarks                  = $this->model->findAll();
 
         return ['bookmarks' => $bookmarks];
@@ -128,5 +129,9 @@ class BookmarkController extends AbstractActionController
         }
 
         $this->redirect()->toRoute('bookmark\account\index');
+    }
+    public function forbiddenAction()
+    {
+        return [];
     }
 }
