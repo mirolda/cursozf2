@@ -1,3 +1,4 @@
+<div class="lead"><a href="<?php echo $this->url('user\users\view', ['id' => $this->identity()->id]) ?>">@<?php echo $this->identity()->username; ?></a></div>
 <div>
     <table border="1">
         <tr>
@@ -26,4 +27,5 @@
 
 <div>
     <p><a href="<?php echo $this->url('bookmark\account\create') ?>">Create a new Bookmark</a> </p>
+    <p><a href="<?php echo $this->url('user\users\index') ?>">Users</a> | <a href="<?php echo $this->url('user\login\logout') ?>">Logout</a> </p>
 </div>
