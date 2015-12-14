@@ -13,13 +13,14 @@ class BookmarkControllerFactory implements FactoryInterface
      *
      * @param ServiceLocatorInterface $serviceLocator
      *
-     * @return BookmarkController
+     * @return BookmarkControlleººr
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $sm = $serviceLocator->getServiceLocator();
-        $bookmarkDao = $sm->get('Bookmark\Model\BookmarkDao');
+        $model = $sm->get('Bookmark\Model\BookmarksModel');
+        $form = $sm->get('Bookmark\Form\Bookmark');
 
-        return new BookmarkController($bookmarkDao);
+        return new UsersController($model, $form);
     }
 }

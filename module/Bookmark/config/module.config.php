@@ -2,6 +2,30 @@
 return array(
     'router' => array(
         'routes' => array(
+            'bookmark\bookmarksREST' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/bookmark-rest/',
+                    'defaults' => array(
+                        'controller' => 'Bookmark\Controller\BookmarksREST',
+                    ),
+                ),
+                'may_terminate' => true, // parent route can be alone
+                'child_routes' => array(
+                    'withID' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => 'id/[:id]/',
+                            'constraints' => array(
+                                'id' => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                // Same as parent. We can also avoid this 'defaults' key
+                            ),
+                        ),
+                    ),
+                ),
+            ),
             'bookmark\account\index' => array(
                 'type' => 'Literal',
                 'options' => array(
@@ -9,6 +33,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'index',
+                        'roles'      => ['admin', 'user'],
                     ),
                 ),
             ),
@@ -22,6 +47,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'view',
+                        'roles'      => ['admin', 'user'],
                     ),
                 ),
             ),
@@ -32,6 +58,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'create',
+                        'roles'      => ['admin'],
                     ),
                 ),
             ),
@@ -42,6 +69,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'doCreate',
+                        'roles'      => ['admin'],
                     ),
                 ),
             ),
@@ -55,6 +83,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'delete',
+                        'roles'      => ['admin'],
                     ),
                 ),
             ),
@@ -68,6 +97,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'update',
+                        'roles'      => ['admin'],
                     ),
                 ),
             ),
@@ -78,6 +108,7 @@ return array(
                     'defaults' => array(
                         'controller' => 'Bookmark\Controller\Bookmark',
                         'action'     => 'doUpdate',
+                        'roles'      => ['admin'],
                     ),
                 ),
             ),
@@ -92,6 +123,7 @@ return array(
     'controllers' => array(
         'factories' => array(
             'Bookmark\Controller\Bookmark' => 'Bookmark\Controller\Factory\BookmarkControllerTableGatewayFactory',
+            'Bookmark\Controller\BookmarksREST'     => 'Bookmark\Controller\Factory\BookmarksRESTControllerFactory',
         ),
     ),
     'view_manager' => array(

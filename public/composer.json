@@ -1,0 +1,5 @@
+{
+    "require": {
+        "itrascastro/acl": "dev-master"
+    }
+}
