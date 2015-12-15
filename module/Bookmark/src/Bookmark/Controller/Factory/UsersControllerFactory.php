@@ -34,8 +34,8 @@ class UsersControllerFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $sm = $serviceLocator->getServiceLocator();
-        $model = $sm->get('Bookmark\Model\BookmarksModel');
-        $form = $sm->get('Bookmark\Form\Bookmark');
+        $model = $sm->get('Bookmark\Model\UsersModel');
+        $form = $sm->get('Bookmark\Form\User');
 
         return new UsersController($model, $form);
     }

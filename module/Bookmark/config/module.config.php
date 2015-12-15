@@ -116,6 +116,8 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
+            'Bookmark\Model\BookmarksModel'                 => 'Bookmark\Model\Factory\BookmarkModelFactory',
+            'Bookmark\Form\Bookmark'                        => 'Bookmark\Form\Factory\BookmarkFormFactory',
             'Bookmark\Model\BookmarkDao'   => 'Bookmark\Model\Factory\BookmarkDaoFactory',
             'Bookmark\Model\BookmarkDaoTableGateway' => 'Bookmark\Model\Factory\BookmarkDaoTableGatewayFactory',
         ),
@@ -124,6 +126,7 @@ return array(
         'factories' => array(
             'Bookmark\Controller\Bookmark' => 'Bookmark\Controller\Factory\BookmarkControllerTableGatewayFactory',
             'Bookmark\Controller\BookmarksREST'     => 'Bookmark\Controller\Factory\BookmarksRESTControllerFactory',
+            'Bookmark\Provider\RoleProvider'        => 'Bookmark\Provider\Factory\RoleProviderFactory',
         ),
     ),
     'view_manager' => array(

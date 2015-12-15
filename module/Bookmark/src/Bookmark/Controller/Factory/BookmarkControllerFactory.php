@@ -21,6 +21,6 @@ class BookmarkControllerFactory implements FactoryInterface
         $model = $sm->get('Bookmark\Model\BookmarksModel');
         $form = $sm->get('Bookmark\Form\Bookmark');
 
-        return new UsersController($model, $form);
+        return new BookmarkController($model, $form);
     }
 }

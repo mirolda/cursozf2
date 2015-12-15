@@ -17,7 +17,7 @@
 namespace Bookmark\Form\Factory;
 
 
-use Bookmark\Form\InputFilter\UserInputFilter;
+use Bookmark\Form\InputFilter\BookmarkInputFilter;
 use Bookmark\Form\BookmarkForm;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
